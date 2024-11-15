@@ -4,6 +4,12 @@ import ClientController from "../controllers/ClientController.js";
 
 const router = Router();
 
+// Get client by id
+router.get("/clients/:id", ClientController.getClient);
+
+// Get all clients
+router.get("/clients", ClientController.getClients);
+
 // Create a new client
 router.post("/clients/create", ClientController.createClient);
 

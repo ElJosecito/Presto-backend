@@ -116,7 +116,7 @@ const calculateNextPaymentDate = (client) => {
 const makePayment = async (req, res) => {
     try {
         const { id } = req.params;
-        const { paymentAmount } = req.body;
+        const { paymentAmount, isPaid } = req.body;
 
         // Check if client exists
         const client = await Client.findById(id);
@@ -133,6 +133,7 @@ const makePayment = async (req, res) => {
         const nextPaymentDate = calculateNextPaymentDate(client);
 
         // Update client document with new values and push payment history
+        client.isPaid = isPaid;
         client.remainingBalance = remainingBalance;
         client.nextPaymentDate = nextPaymentDate;
 

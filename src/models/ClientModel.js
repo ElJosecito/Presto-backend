@@ -8,6 +8,8 @@ const ClientSchema = new mongoose.Schema(
         number: { type: String, required: true, trim: true },
         identification: { type: String, required: true, trim: true },
         accountUniqueId: { type: String, required: true, trim: true },
+        isPaid: { type: Boolean, required: true, default: false },
+        image: { type: String, required: true, trim: true, default: "https://avatars.githubusercontent.com/u/58600776?v=4" },
         loanAmount: {
             type: Number,
             required: true,
